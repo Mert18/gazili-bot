@@ -38,12 +38,7 @@ bot.on("message", (message) => {
 
     bot.sendMessage(chatid, "aynn");
   }
-  if (
-    message.text == "sa" ||
-    message.text == "selamun aleyküm" ||
-    message.text == "Sa" ||
-    message.text == "SA"
-  ) {
+  if (message.text.toLowerCase() == "sa") {
     let chatid = message.chat.id;
 
     bot.sendMessage(chatid, "aleyküm selam kardeşim hoş geldin");
