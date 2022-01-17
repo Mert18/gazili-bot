@@ -50,8 +50,18 @@ bot.on("message", (message) => {
     bot.sendPhoto(chatid, "screenshot.png");
   }
 
-  if (message.text.indexOf("finaller") || message.text.indexOf("Finaller")) {
+  if (message.text.includes("finaller") || message.text.includes("Finaller")) {
     let chatid = message.chat.id;
-    bot.sendMessage(chatid, "abi işte finaller olmasa");
+    let arrayofFinaller = [
+      "abi işte finaller olmasa",
+      "finaller abi finaller çok kötü",
+      "her gün partiliyor olurduk finaller olmasa",
+      "ah şu finaller",
+      "finaller bitince halledelim o zaman",
+      "şu finaller bitsin boştayız",
+    ];
+    let randomNum = Math.trunc(Math.random() * arrayofFinaller.length);
+    let str = arrayofFinaller[randomNum];
+    bot.sendMessage(chatid, `${str}`);
   }
 });
