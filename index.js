@@ -49,4 +49,9 @@ bot.on("message", (message) => {
     let chatid = message.chat.id;
     bot.sendPhoto(chatid, "screenshot.png");
   }
+
+  if (message.text.indexOf("finaller") || message.text.indexOf("Finaller")) {
+    let chatid = message.chat.id;
+    bot.sendMessage(chatid, "abi işte finaller olmasa");
+  }
 });
