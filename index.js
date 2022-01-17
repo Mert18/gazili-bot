@@ -45,7 +45,7 @@ bot.on("message", (message) => {
   }
 
   if (message.text == "yemek") {
-    run();
+    //    run();
     let chatid = message.chat.id;
     bot.sendPhoto(chatid, "screenshot.png");
   }
