@@ -14,8 +14,10 @@
     "axios": "^0.24.0",
     "cheerio": "^1.0.0-rc.10",
     "dotenv": "^14.1.0",
+    "moment": "^2.29.1",
     "node-telegram-bot-api": "^0.56.0",
     "playwright": "^1.17.2",
-    "puppeteer": "^13.0.1"
+    "puppeteer": "^13.0.1",
+    "read-last-lines": "^1.8.0"
   }
 }
