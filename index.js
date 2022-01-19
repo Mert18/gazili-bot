@@ -32,26 +32,20 @@ async function run() {
 }
 
 bot.on("message", (message) => {
-  console.log(message);
+  let chatid = message.chat.id;
   if (message.from.id == 1106794749) {
-    let chatid = message.chat.id;
-
     bot.sendMessage(chatid, "aynn");
   }
   if (message.text.toLowerCase() == "sa") {
-    let chatid = message.chat.id;
-
     bot.sendMessage(chatid, "aleyküm selam kardeşim hoş geldin");
   }
 
   if (message.text == "yemek") {
-    //    run();
-    let chatid = message.chat.id;
+    //    run(); // Uncomment to reproduce the image, (slows down the bot).
     bot.sendPhoto(chatid, "screenshot.png");
   }
 
   if (message.text.includes("finaller") || message.text.includes("Finaller")) {
-    let chatid = message.chat.id;
     let arrayofFinaller = [
       "abi işte finaller olmasa",
       "finaller abi finaller çok kötü",
@@ -63,5 +57,9 @@ bot.on("message", (message) => {
     let randomNum = Math.trunc(Math.random() * arrayofFinaller.length);
     let str = arrayofFinaller[randomNum];
     bot.sendMessage(chatid, `${str}`);
+  }
+
+  if (message.from.id == 1594187328) {
+    bot.sendMessage(chatid, `Selim yazdı: ${message.text} `);
   }
 });
