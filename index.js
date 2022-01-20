@@ -77,7 +77,7 @@ bot.on("message", (message) => {
     });
   }
 
-  if (message.text == "selim ne yazdı") {
+  if (message.text.toLowerCase() == "selim ne yazdı") {
     readLastLines.read("selim.txt", 10).then(function (lines) {
       let data = lines;
       bot.sendMessage(chatid, data);
