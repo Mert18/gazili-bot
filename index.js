@@ -83,4 +83,11 @@ bot.on("message", (message) => {
       bot.sendMessage(chatid, data);
     });
   }
+
+  if (message.text == "lanet olsun") {
+    bot.sendMessage(
+      chatid,
+      "burada yaşayan en güçlü ve en zeki erkekleri görüyorum. bu potansiyeli görüyorum ve hepsi heba oluyor. lanet olsun, bütün bir nesil benzin pompalıyor, garsonluk yapıyor, ya da beyaz yakalı köle olmuş. reklamlar yüzünden araba ve kıyafet peşinde. nefret ettiğimiz işlerde çalışıp gereksiz şeyler alıyoruz. Bizler tarihin ortanca çocuklarıyız. bir amacımız ya da yerimiz yok, ne büyük savaşı yaşadık ne de büyük buhranı. bizim savaşımız ruhani bir savaş, en büyük buhranımız hayatlarımız. televizyonla büyürken, milyoner film yıldızı ya da rock yıldızı olacağımıza inandık, ama olmayacağız. bunu yavaş yavaş öğreniyoruz ve o yüzden çok çok kızgınız."
+    );
+  }
 });
