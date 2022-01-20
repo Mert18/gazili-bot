@@ -2,7 +2,6 @@ const telegramBot = require("node-telegram-bot-api");
 require("dotenv").config();
 const puppeteer = require("puppeteer");
 const fs = require("fs");
-const moment = require("moment");
 const readLastLines = require("read-last-lines");
 
 const TOKEN = process.env.TOKEN;
@@ -35,11 +34,19 @@ async function run() {
 }
 
 bot.on("message", (message) => {
+  fs.appendFile(
+    "sonyazilanlar.txt",
+    `${message.from.first_name} - ${message.text}`,
+    function (err, data) {
+      if (err) return err;
+    }
+  );
+  fs.appendFile("sonyazilanlar.txt", "\r\n", function (err, data) {
+    if (err) return err;
+  });
+
   console.log(message);
   let chatid = message.chat.id;
-  if (message.from.id == 1106794749) {
-    bot.sendMessage(chatid, "aynn");
-  }
   if (message.text.toLowerCase() == "sa") {
     bot.sendMessage(chatid, "aleyküm selam kardeşim hoş geldin");
   }
@@ -63,22 +70,8 @@ bot.on("message", (message) => {
     bot.sendMessage(chatid, `${str}`);
   }
 
-  if (message.from.id == 1594187328) {
-    let dateString = moment.unix(message.date).format("DD-MM-YYYY h:mm:ss");
-    fs.appendFile(
-      "selim.txt",
-      `${dateString} - ${message.text}`,
-      function (err, data) {
-        if (err) return err;
-      }
-    );
-    fs.appendFile("selim.txt", "\r\n", function (err, data) {
-      if (err) return err;
-    });
-  }
-
-  if (message.text == "selim ne yazdı" || message.text == "Selim ne yazdı") {
-    readLastLines.read("selim.txt", 10).then(function (lines) {
+  if (message.text == "ne yazdı" || message.text == "Ne yazdı") {
+    readLastLines.read("sonyazilanlar.txt", 17).then(function (lines) {
       let data = lines;
       bot.sendMessage(chatid, data);
     });
