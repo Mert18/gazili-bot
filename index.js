@@ -32,23 +32,6 @@ bot.on("message", (message) => {
 
   let chatid = message.chat.id;
 
-  if (message.text == "sa") {
-    bot.sendMessage(chatid, "aleyküm selam kardeşim hoş geldin");
-  }
-
-  if (message.text.toLowerCase().includes() == "finaller") {
-    let arrayofFinaller = [
-      "abi işte finaller olmasa",
-      "finaller abi finaller çok kötü",
-      "her gün partiliyor olurduk finaller olmasa",
-      "ah şu finaller",
-      "finaller bitince halledelim o zaman",
-      "şu finaller bitsin boştayız",
-    ];
-    let randomNum = Math.trunc(Math.random() * arrayofFinaller.length);
-    let str = arrayofFinaller[randomNum];
-    bot.sendMessage(chatid, `${str}`);
-  }
   if (message.text.toLowerCase() == "yemek") {
     bot.sendPhoto(chatid, "screenshot.png");
   }
