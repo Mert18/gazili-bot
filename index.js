@@ -9,6 +9,7 @@ import {
   coinApiBTC,
   coinApiSOL,
   coinApiTRY,
+  coinApiMANA,
   memeApi,
 } from "./config.js";
 
@@ -92,11 +93,17 @@ bot.on("message", (message) => {
 
         const restry = await fetch(coinApiTRY);
         const pricetry = await restry.json();
+
+        const resmana = await fetch(coinApiMANA);
+        const pricemana = await resmana.json();
+
         bot.sendMessage(
           chatid,
           `TRY: ${pricetry.rate.toFixed(2)}\nBTC: $${Math.trunc(
             price.rate
-          )}\nSOL: $${Math.trunc(pricesol.rate)}`
+          )}\nSOL: $${Math.trunc(
+            pricesol.rate
+          )}\nMANA: $${pricemana.rate.toFixed(2)}`
         );
       } catch (err) {
         console.log(err);
