@@ -9,8 +9,10 @@ import {
   coinApiSOL,
   coinApiTRY,
   coinApiMANA,
+  randomWord,
   memeApi,
 } from "./config.js";
+import { curly } from "node-libcurl";
 
 const bot = new telegramBot(TOKEN, { polling: true });
 
@@ -101,6 +103,38 @@ bot.on("message", (message) => {
         const meme = await res.json();
 
         bot.sendPhoto(chatid, meme.url);
+      } catch (err) {
+        console.log(err);
+      }
+    })();
+  }
+
+  if (message.text.toLowerCase() == "joke") {
+    (async () => {
+      try {
+        const { data } = await curly.get("https://icanhazdadjoke.com/", {
+          httpHeader: ["Accept: text/plain"],
+        });
+        bot.sendMessage(chatid, data);
+      } catch (err) {
+        console.log(err);
+      }
+    })();
+  }
+
+  if (message.text.toLowerCase() == "word") {
+    (async () => {
+      try {
+        const res = await fetch(randomWord);
+        const words = await res.json();
+        const word = words[0];
+
+        console.log(word);
+
+        bot.sendMessage(
+          chatid,
+          `${word.title} - ${word.description[0]}\n\nSynonyms: ${word.synonyms[0]}, ${word.synonyms[1]}\n\nExample: ${word.sentences[0]}`
+        );
       } catch (err) {
         console.log(err);
       }

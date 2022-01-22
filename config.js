@@ -9,5 +9,7 @@ export const coinApiSOL = `https://rest.coinapi.io/v1/exchangerate/SOL/USD?apike
 export const coinApiTRY = `https://rest.coinapi.io/v1/exchangerate/USD/TRY?apikey=${process.env.COINAPI}`;
 export const coinApiMANA = `https://rest.coinapi.io/v1/exchangerate/MANA/USD?apikey=${process.env.COINAPI}`;
 export const memeApi = "https://meme-api.herokuapp.com/gimme";
+export const randomWord =
+  "https://hachiko-dictionary.herokuapp.com/api/dictionary/getword/random";
 
 export const TOKEN = process.env.TOKEN;
