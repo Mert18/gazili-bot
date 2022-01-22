@@ -3,7 +3,6 @@ import fs from "fs";
 import readLastLines from "read-last-lines";
 import fetch from "cross-fetch";
 import {
-  jokerApi,
   yemekUrl,
   TOKEN,
   coinApiBTC,
@@ -57,22 +56,6 @@ bot.on("message", (message) => {
       let data = lines;
       bot.sendMessage(chatid, data);
     });
-  }
-
-  if (message.text.toLowerCase() == "kurt") {
-    (async () => {
-      try {
-        const res = await fetch(jokerApi);
-
-        const joke = await res.json();
-        bot.sendMessage(chatid, joke.setup);
-        setTimeout(() => {
-          bot.sendMessage(chatid, joke.delivery);
-        }, 5000);
-      } catch (err) {
-        console.log(err);
-      }
-    })();
   }
 
   if (message.text.toLowerCase() == "lanet olsun") {
